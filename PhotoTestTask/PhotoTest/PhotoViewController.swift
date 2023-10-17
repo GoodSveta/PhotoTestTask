@@ -12,7 +12,7 @@ class PhotoViewController: UIViewController {
     enum Identifier: String {
         case PhotoCollectionViewCell
     }
-    
+    var imagePicker: UIImagePickerController!
     var photoVM: (PhotoProtocolIn & PhotoProtocolOut)?
     
     init(photoVM: PhotoProtocolIn & PhotoProtocolOut) {
@@ -142,7 +142,8 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.allowsEditing = true
-        pickerController.sourceType = .photoLibrary
+        pickerController.sourceType = .camera
+        
         
         //чтобы открыть камеру (на симуляторе не работает, только на реальном устройстве) изменить на cameraVc.sourceType = UIImagePickerController.SourceType.camera
         
